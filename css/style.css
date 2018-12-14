@@ -1,27 +1,210 @@
 body{
-  padding: 0px;
-  margin: 0px;
+  background-image: linear-gradient(to right, rgb(47, 57, 96), rgb(92, 220, 213));
+  color: #fff;
 }
-#bg{
-  height: 100vh;
-  width: auto;
-  position: absolute;
-  overflow: hidden;
+hr{
+  border: 0px;
+  height:2px;
+  background:rgba(255, 255, 255, 0.2);
 }
-#bg img{
-  height: 120vh;
-  width: 105%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  -webkit-filter: blur(4px);
+.player{
+  background-image: linear-gradient(rgb(0,223,195) 5%,rgb(255,255,255),rgb(30,178,192),rgb(70,120,170),rgb(206,85,191));
+  filter: blur(50%);
+  height: 500px;
+  width: 280px;
+  margin: 50px auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Roboto', sans-serif;
 }
-#blacklayer{
-  height: 100vh;
+.header{
+  position: relative;
   width: 100%;
-  background-color: rgba(0, 0, 0, .2);
+  height: 30px;
+}
+.header div{
   position: absolute;
-  z-index: 99;
+  float:left;
+  top: 70%;
+  transform: translate(-50%,-50%);
+}
+.header .top{
+  left: 50%;
+}
+.header .account{
+  left:93%;
+}
+.header .navi{
+  left: 8%;
+}
+.top{
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  padding: 10px;
+}
+.additionalDetails{
+  position: relative;
+  width: 100%;
+  height: 5px;
+  padding: 10px 0px;
+}
+.additionalDetails .volume{
+  position: absolute;
+  left:8%;
+  transform: translate(-50%,-50%);
+}
+.additionalDetails .fav{
+  position: absolute;
+  left:93%;
+  transform: translate(-50%,-50%);
+}
+.albumArt{
+  max-width: 100px;
+  height: 100px;
+  margin: 0px auto 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.albumArt img{
+  max-height: 100px;
+  width: auto;
+  border: 10px solid white;
+  box-sizing: border-box;
+}
+.ablumName{
+  text-align: center;
+  font-size: 15px;
+}
+.title{
+  text-align: center;
+  margin: 5px 0px 7px;
+  font-size: 25px;
+  font-family: 'Anton', sans-serif;
+}
+.scrollBar{
+  width: 100%;
+}
+.scrollBar .currentTime, .totalTime{
+  display: inline-block;
+  font-size: 10px;
+  margin: 0px 20px;
+  padding: 2px 10px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 10px;
+}
+.scrollBar .currentTime{
+  float:left;
+}
+.scrollBar .totalTime{
+  float: right;
+}
+.scrollBar input{
+  width: 99%;
+  height: 1px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  outline:none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.scrollBar input:hover{
+  opacity: 1;
+}
+.scrollBar input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  opacity: 1.0;
+  appearance: none;
+  width: 15px;
+  height: 15px; 
+  border: 4px solid white;
+  border-radius: 50%;
+  background: rgb(255, 105, 237);
+  cursor: pointer;
+}
+.scrollBar input::-moz-range-thumb {
+  opacity: 1.0;
+  appearance: none;
+  width: 15px;
+  height: 15px; 
+  border: 4px solid white;
+  border-radius: 50%;
+  background: rgb(255, 105, 237);
+  cursor: pointer;
+}
+.btns
+{ width: 100%;
+  margin: 20px 0px;
+  height: 30px;
+  position: relative;
+}
+.btns div{
+  float: left;
+  position: absolute;
+  font-size: 15px;
+  transform: translate(-50%,-50%);
+  top: 50%;
+}
+.btns .shuffle{
+  left:15%;
+}
+.btns .repeat{
+  left:85%;
+}
+.btns .play, .btns .pause{
+  font-size: 35px;
+  left: 50%;
+}
+.btns .play{
+  display: inline-block;
+}
+.btns .pause{
+  display: none;
+}
+.btns .back{
+  left: 38%;
+}
+.btns .next{
+  left: 62%;
+}
+.queue{
+  width: 100%;
+}
+.queue hr{
+  width: 90%;
+  height: 2px;
+  background:rgba(255, 255, 255, 0.1);
+}
+.song{
+  height: 40px;
+  
+  font-display: 'Roboto', sans-serif;
+  font-size: 13px;
+  position: relative;
+}
+.song span{
+  position: absolute;
+  float: left;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: inline-block;
+  box-sizing: none;
+}
+.song .index{
+  left: 7%;
+  padding: 2px 5px;
+  font-size: 10px;
+  color: rgb(30, 255, 225);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+.song .songName{
+  transform: translate(0%,-50%);
+  left: 18%;
+}
+.song .duration{
+  left: 90%;
+  padding: 1px 8px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
 }

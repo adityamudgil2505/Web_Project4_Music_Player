@@ -1,39 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-  <script src="js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Music Player</title>
 </head>
 <body>
-
-  <div id="bg">
-    <div id="blacklayer">
-      <img src="./images/Good_Life.jpg">
+  <div class="player">
+    <div class="header">
+      <div class="navi"><span id="navi_btn"><i class="fas fa-bars"></i></span></div>
+      <div class="top">TopMusic</div>
+      <div class="account"><span id="user"><i class="fas fa-user"></i></span></div>
+      </div>
+    <hr>
+    <div class="additionalDetails">
+      <div class="volume"><i class="fas fa-volume-up"></i></div>
+      <div class="fav"><i class="far fa-heart"></i></div>
+    </div>
+    <div class="image">
+      <div class="albumArt"><img src="/images/ImagineDragons.jpeg"></div>
+      <div class="ablumName">Imagine Dragon - Evolve</div>
+      <div class="title">Believer</div>
+    </div>
+    <div class="scrollBar">
+      <div class="currentTime">3:07</div>
+      <div class="totalTime">3:50</div>
+      <div id="scroll"><input type="range" min="0" max="100"></div>
+    </div>
+    <div class="btns">
+      <div class="shuffle"><i class="fas fa-random"></i></div>
+      <div class="back"><i class="fas fa-backward"></i></div>
+      <div class="play"><i class="fas fa-play-circle"></i></div>
+      <div class="pause"><i class="fas fa-pause-circle"></i></div>
+      <div class="next"><i class="fas fa-forward"></i></div>
+      <div class="repeat"><i class="fas fa-redo-alt"></i></div>
+    </div>
+    <hr>
+    <div class="queue">
+      <div class="song" id="song_1"><span class="index">1</span><span class="songName">Sugar</span><span class="duration">4:38</span></span></div> 
+      <hr>
+      <div class="song" id="song_2"><span class="index">2</span><span class="songName">Mere Naam Tu</span><span class="duration">3:16</span></span></div>  
+    </div>
     </div>
   </div>
-
-  <div id="main">
-    <div id="image">
-      <img src="./images/Good_Life.jpg">
-    </div>
-  </div>
-
-  <div id="player">
-    <div id="songTitle">Demo</div>
-    <div id="buttom">
-      <button id="pre" onclick="pre()"><img src="./images/Pre.png"></button>
-      <button id="play" onclick="playOrPauseSong()"><img src="./images/Pause.png"></button>
-      <button id="next" onclick="next()"><img src="./images/Next.png"></button>
-    </div>
-    <div id="seekBar">
-        <div id="fill"></div>
-        <div id="handle"></div>
-    </div>
-  </div>
-
 </body>
 </html>
