@@ -10,7 +10,7 @@ hr{
 .player{
   background-image: linear-gradient(rgb(0,223,195) 5%,rgb(255,255,255),rgb(30,178,192),rgb(70,120,170),rgb(206,85,191));
   filter: blur(50%);
-  height: 500px;
+  height: 520px;
   width: 280px;
   margin: 50px auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -143,21 +143,30 @@ hr{
   transform: translate(-50%,-50%);
   top: 50%;
 }
+.btns div:hover{
+  text-shadow: 0px 0px 7px rgba(255, 255, 255, 0.603);
+  cursor: pointer;
+}
 .btns .shuffle{
   left:15%;
 }
 .btns .repeat{
   left:85%;
 }
-.btns .play, .btns .pause{
+.btns .repeat span{
+  display: none;
+  position: absolute;
+  font-size: 7px;
+  top: 30%;
+  left: 35%;
+  font-weight: bold;
+}
+.btns .play{
   font-size: 35px;
   left: 50%;
 }
 .btns .play{
   display: inline-block;
-}
-.btns .pause{
-  display: none;
 }
 .btns .back{
   left: 38%;
@@ -174,7 +183,7 @@ hr{
   background:rgba(255, 255, 255, 0.1);
 }
 .song{
-  height: 40px;
+  height: 30px;
   
   font-display: 'Roboto', sans-serif;
   font-size: 13px;
@@ -182,7 +191,6 @@ hr{
 }
 .song span{
   position: absolute;
-  float: left;
   top: 50%;
   transform: translate(-50%,-50%);
   display: inline-block;
