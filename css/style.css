@@ -48,9 +48,56 @@ hr{
   height: 5px;
   padding: 10px 0px;
 }
+.additionalDetails div:hover{
+  text-shadow: 0px 0px 7px rgba(255, 255, 255, 0.603);
+  cursor: pointer;
+}
 .additionalDetails .volume{
   position: absolute;
   left:8%;
+  transform: translate(-50%,-50%);
+}
+.additionalDetails #volSlider{
+  position: absolute;
+  left: 12%;
+  top:50%;
+  width: 0px;
+  transform: translate(30%,-85%);
+}
+.additionalDetails #volSlider input{
+  position:none;
+  width: 0px;
+  opacity: 0.9;
+  height: 1px;
+  margin: 0px 20px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  outline:none;
+  transition: width 1s;
+  transition-timing-function: linear;
+}
+.additionalDetails #volSlider input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  display: none;
+  opacity: 1.0;
+  appearance: none;
+  width: 10px;
+  height: 10px; 
+  border: 3px solid white;
+  border-radius: 50%;
+  background: rgb(255, 105, 237);
+  cursor: pointer;
+}
+.additionalDetails .volume:hover #volSlider input{
+  display: static;
+  width: 60px;
+}
+.additionalDetails .volume:hover #volSlider input::-webkit-slider-thumb {
+  display: inline;
+}
+.additionalDetails .unfav{
+  position: absolute;
+  left:93%;
   transform: translate(-50%,-50%);
 }
 .additionalDetails .fav{

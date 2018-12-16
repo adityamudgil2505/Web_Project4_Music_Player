@@ -18,16 +18,21 @@ for(var i=0;i<noOfSongs;i++)
 }
 
 //Calculating duration of all songs
-for(var i=0 ;i<noOfSongs; i++)
-{ let song=new Audio();
-  song.src="/songs/"+title[i]+'.mp3';
-  let tempA=setInterval(function()
-  { if(song.readyState>0)
-    { var tempB=timeString(song.duration);
-      durationList.push(tempB);
-      clearInterval(tempA);
-    }
-  },10);
+window.onload=loadDuration;
+function loadDuration(){
+  for(var i=0 ;i<noOfSongs; i++)
+  { let song=new Audio();
+    song.src="songs/"+title[i]+'.mp3';
+    let tempA=setInterval(function()
+    { if(song.readyState>0)
+      { var tempB=timeString(song.duration);
+        durationList.push(tempB);
+        console.log(durationList);
+        clearInterval(tempA);
+      }
+    },10);
+  }
+  playSong();
 }
 
 var song = new Audio();
@@ -36,25 +41,37 @@ var cTime=0;
 var repeat=false;
 
 //play song function with totaltime update
-window.onload=playSong;
 function playSong()
-{ updateQueue();
-  song.src="/songs/"+title[sequence[currentSong]]+'.mp3';
-  $(".albumArt img").attr("src","/images/"+albumArt[sequence[currentSong]]);
+{ console.log("Window is updated");
+  song.src="songs/"+title[sequence[currentSong]]+'.mp3';
+  $(".albumArt img").attr("src","images/"+albumArt[sequence[currentSong]]);
   $(".ablumName").text(albumName[sequence[currentSong]]);
   $(".title").text(title[sequence[currentSong]]);
-  $(".totalTime").text(durationList[sequence[currentSong]]);
-  song.play();
+  let temp=setInterval(function(){
+    if(song.readyState>0)
+    { $(".totalTime").text(durationList[sequence[currentSong]]);
+      song.play();
+      updateQueue();
+      clearInterval(temp);
+    }
+  },10);
 }
 
 //currentTime update function
 var ct=setInterval(function(){
+
   let temp=timeString(song.currentTime);
   $(".currentTime").text(temp);
   let per =Math.round(1000*(song.currentTime/song.duration));
   scrollBar.prop("value",per);
   if(per>=1000){checkRepeat();}
-},100);
+},10);
+
+//on input change
+scrollBar.on('oninput',function(){
+  console.log("yup");
+  song.currentTime=((scrollBar.prop("value")*song.duration)/100);
+});
 
 //Pause and Play button function
 pauseAndPlay.on('click',function(){
@@ -137,4 +154,31 @@ function swap(arr, a, b)
 { let temp=arr[a];
   arr[a]=arr[b];
   arr[b]=temp;
+}
+
+//Volume
+var volBtn = $('.volume i');
+var volSlider = $('#volSlider input');
+var prevValue=1.0;
+volBtn.on('click',function(){
+  if(song.volume==0)
+  { volSlider.prop('value',prevValue);
+    changeVol();
+    volBtn.removeClass('fa-volume-mute');
+    volBtn.addClass('fa-volume-up');
+  }
+  else
+  { volSlider.prop('value',0);
+    changeVol();
+    volBtn.removeClass('fa-volume-up');
+    volBtn.addClass('fa-volume-mute');
+  }
+});
+function changeVol()
+{ prevValue=song.volume*10;
+  song.volume= volSlider.prop('value')/10;
+  if(song.volume==0)
+  { volBtn.removeClass('fa-volume-up');
+    volBtn.addClass('fa-volume-mute');
+  }
 }
