@@ -1,3 +1,7 @@
+*, *:after, *:before
+{
+  box-sizing: border-box;
+}
 body{
   background-image: linear-gradient(to right, rgb(47, 57, 96), rgb(92, 220, 213));
   color: #fff;
@@ -15,6 +19,98 @@ hr{
   margin: 50px auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: 'Roboto', sans-serif;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+div.side-menu {
+  box-sizing: border-box;
+  width: 70%;
+  height: 520px;
+  position: absolute;
+  background: rgba(51, 51, 51, 0.959);
+  z-index: 98;
+  margin-left: -310px;
+}
+
+div.side-menu-background {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  background-size: auto 100%;
+  opacity: .07;
+  z-index: 95;
+}
+
+div.side-menu a.close {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  font-size: 25px;
+  color: #FFF;
+  z-index: 100;
+}
+
+div.side-menu ul {
+  margin: 50px 0 0 0;
+  z-index: 99 !important;
+  position: relative;
+}
+
+div.side-menu li {
+  color: #AAA;
+  padding: 10px 0 13px 5px;
+  z-index: 99;
+}
+
+div.side-menu li.active {
+  color: #FFF;
+}
+
+div.side-menu li span {
+  color: inherit;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  z-index: 100;
+}
+
+div.side-menu li span i {
+  margin-right: 7px;
+}
+div.side-menu li span:hover{
+  text-shadow: 0px 0px 2px rgb(255, 255, 255);
+  cursor: pointer;
+  color: #FFF;
+}
+#sideBarFav{
+  margin: 10px 10px 0px;
+  background-color: rgba(51, 51, 51, 0.959);
+  max-height: 150px;
+  overflow: auto;
+  height: 100%;
+}
+#sideBarFav div{
+  padding: 2px 2px 2px 10px;
+  white-space: nowrap; 
+  overflow: hidden;
+  height: 100%;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+#sideBarFav div:hover{
+  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.699);
+  color: #FFF;
+}
+#about{
+  position: relative;
+  margin: 10px 10px 0px;
+  color: #AAA;
+  background-color: rgba(51, 51, 51, 0.959);
+  top:42%;
+  padding: 2px 2px 2px 10px;
+  font-size: 10px;
 }
 .header{
   position: relative;
@@ -27,14 +123,19 @@ hr{
   top: 70%;
   transform: translate(-50%,-50%);
 }
+.header span:hover{
+  text-shadow: 0px 0px 7px rgba(255, 255, 255, 0.603);
+  cursor: pointer;
+}
 .header .top{
-  left: 50%;
+  left: 50%; 
 }
 .header .account{
   left:93%;
 }
 .header .navi{
   left: 8%;
+  z-index: 3;
 }
 .top{
   text-align: center;
@@ -56,6 +157,9 @@ hr{
   position: absolute;
   left:8%;
   transform: translate(-50%,-50%);
+}
+.additionalDetails .volume i{
+  display: block;
 }
 .additionalDetails #volSlider{
   position: absolute;
@@ -93,7 +197,7 @@ hr{
   width: 60px;
 }
 .additionalDetails .volume:hover #volSlider input::-webkit-slider-thumb {
-  display: inline;
+  display: block;
 }
 .additionalDetails .unfav{
   position: absolute;
